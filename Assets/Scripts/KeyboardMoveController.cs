@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class KeyboardMoveController : MonoBehaviour
 {
     public float speed = 10.0f;
+    public float jumpForce = 5.0f;
+    public float distFromGroundForJump = 0.2f;
+    
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
 
@@ -15,7 +20,7 @@ public class KeyboardMoveController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
@@ -27,10 +32,26 @@ public class KeyboardMoveController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rb.AddForce(new Vector3(0, 7, 0), ForceMode2D.Impulse);
+            if (IsGrounded())
+            {
+                _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
+            }
         }
 
         // Move translation along the object's x-axis
         transform.Translate(translationX, 0, 0);
+    }
+    
+    
+
+    private bool IsGrounded()
+    {
+        if (Physics2D.Raycast(_rb.position, Vector2.down, distFromGroundForJump).collider != null)
+        {
+            Debug.Log("True");
+            return true;
+        }
+        Debug.Log("False");
+        return false;
     }
 }
