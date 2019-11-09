@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CharacterController = Controllers.CharacterController;
 
 public class CharacterMovement : MonoBehaviour
 {
