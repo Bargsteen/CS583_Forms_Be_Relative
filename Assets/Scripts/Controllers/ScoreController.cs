@@ -10,7 +10,7 @@ namespace Controllers
 
         private void Awake()
         {
-            GameManager.AddListenerToScoreUpdates(UpdateScore);
+            GameManager.Instance.AddListenerToScoreUpdates(UpdateScore);
         }
 
         private void UpdateScore(int current, int max)

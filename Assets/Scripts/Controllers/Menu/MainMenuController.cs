@@ -4,23 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Controllers
+namespace Controllers.Menu
 {
-    public class MainMenuController : MonoBehaviour
+    public class MainMenuController : MenuWithExitController
     {
         [SerializeField] private Button continueButton;
         [SerializeField] private Button newGameButton;
-        [SerializeField] private Button exitButton;
-        private void Start()
+        protected override void Start()
         {
-            if (GameManager.SavedProgressExists)
+            base.Start();
+            
+            if (GameManager.Instance.SavedProgressExists)
             {
                 continueButton.enabled = true;
             }
 
             continueButton.onClick.AddListener(OnContinuePressed);
             newGameButton.onClick.AddListener(OnNewGamePressed);
-            exitButton.onClick.AddListener(OnExitPressed);
         }
 
         private static void OnContinuePressed()
@@ -32,17 +32,5 @@ namespace Controllers
         {
             SceneManager.LoadScene(Scenes.Level(1));
         }
-        
-        private static void OnExitPressed()
-        {
-            GameManager.SaveGame();
-            #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                            Application.Quit();
-            #endif
-        }
-        
-        
     }
 }

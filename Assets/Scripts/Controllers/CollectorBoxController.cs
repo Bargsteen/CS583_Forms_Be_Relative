@@ -23,7 +23,7 @@ namespace Controllers
             // If it is the correct type of shape
             if (other.GetComponent<SpriteRenderer>().sprite.name == spriteTypeToCollect.name)
             {
-                GameManager.IncrementScore();
+                GameManager.Instance.IncrementScore();
             }
         }
 

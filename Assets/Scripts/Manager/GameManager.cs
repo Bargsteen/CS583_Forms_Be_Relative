@@ -1,38 +1,57 @@
 using Misc;
-using UnityEngine.Assertions;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Manager
 {
     public class GameManager : Singleton<GameManager>
     {
-        private static int _currentScore;
-        private static int _maxScore;
+        private int _currentScore;
+        private int _maxScore;
 
-        public static bool SavedProgressExists { get; } = false;
+        public int CurrentLevel { get; } = 1;
+        public bool SavedProgressExists { get; } = false;
+
+        public bool GameIsRunning { get; private set; }
+
+        private readonly ScoreUpdatedEvent _onScoreUpdated = new ScoreUpdatedEvent();
         
-        private static readonly ScoreUpdatedEvent OnScoreUpdated = new ScoreUpdatedEvent();
-
-        public static void IncrementScore()
+        public void IncrementScore()
         {
             _currentScore += 1;
-            OnScoreUpdated?.Invoke(_currentScore, _maxScore);
+            _onScoreUpdated?.Invoke(_currentScore, _maxScore);
         }
 
-        public static void AddListenerToScoreUpdates(UnityAction<int, int> eventHandler)
+        public void AddListenerToScoreUpdates(UnityAction<int, int> eventHandler)
         {
-            OnScoreUpdated.AddListener(eventHandler);
+            _onScoreUpdated.AddListener(eventHandler);
         }
 
-        public static void SetMaxScore(int maxScore)
+        public void SetMaxScore(int maxScore)
         {
             _maxScore = maxScore;
-            OnScoreUpdated?.Invoke(_currentScore, _maxScore);
+            _onScoreUpdated?.Invoke(_currentScore, _maxScore);
         }
 
-        public static void SaveGame()
+        public void SaveGame()
         {
             // TODO: Save game in PlayerPrefs
+        }
+
+        public void RunGame()
+        {
+            GameIsRunning = true;
+            
+            // Runs the game at regular speed
+            Time.timeScale = 1; 
+        }
+
+        public void PauseGame()
+        { 
+            GameIsRunning = false;
+            
+            // Stops the time in the game
+            Time.timeScale = 0;
         }
     }
 }
