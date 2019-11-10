@@ -25,10 +25,6 @@ namespace Controllers
             {
                 GameManager.IncrementScore();
             }
-            else
-            {
-                GameManager.DecrementScore();
-            }
         }
 
         private void Update()

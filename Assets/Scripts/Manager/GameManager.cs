@@ -10,19 +10,13 @@ namespace Manager
         private static int _maxScore;
         
         private static readonly ScoreUpdatedEvent OnScoreUpdated = new ScoreUpdatedEvent();
-        
+
         public static void IncrementScore()
         {
             _currentScore += 1;
             OnScoreUpdated?.Invoke(_currentScore, _maxScore);
         }
 
-        public static void DecrementScore()
-        {
-            _currentScore -= 1;
-            OnScoreUpdated?.Invoke(_currentScore, _maxScore);
-        }
-        
         public static void AddListenerToScoreUpdates(UnityAction<int, int> eventHandler)
         {
             OnScoreUpdated.AddListener(eventHandler);
