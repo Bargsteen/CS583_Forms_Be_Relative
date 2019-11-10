@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Controllers;
-using DefaultNamespace;
 using UnityEngine;
 
 namespace Manager

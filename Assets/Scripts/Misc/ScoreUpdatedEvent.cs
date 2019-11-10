@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.Events;
 
-namespace Manager
+namespace Misc
 {
     [Serializable]
     public class ScoreUpdatedEvent : UnityEvent<int, int>

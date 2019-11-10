@@ -1,28 +1,31 @@
-﻿using UnityEngine;
-using CharacterController = Controllers.CharacterController;
+﻿using Misc;
+using UnityEngine;
 
-public class CharacterMovementController : MonoBehaviour
+namespace Controllers
 {
-    public CharacterController controller;
-
-    [SerializeField] private float movementSpeed = 40f;
-
-    private float _horizontalMove;
-    private bool _jump;
-
-    private void Update()
+    public class CharacterMovementController : MonoBehaviour
     {
-        _horizontalMove = Input.GetAxisRaw(Axes.Horizontal) * movementSpeed;
+        public CharacterController controller;
 
-        if (Input.GetButtonDown("Jump"))
+        [SerializeField] private float movementSpeed = 40f;
+
+        private float _horizontalMove;
+        private bool _jump;
+
+        private void Update()
         {
-            _jump = true;
-        }
-    }
+            _horizontalMove = Input.GetAxisRaw(Axes.Horizontal) * movementSpeed;
 
-    private void FixedUpdate()
-    {
-        controller.Move(_horizontalMove * Time.fixedDeltaTime, _jump);
-        _jump = false;
+            if (Input.GetButtonDown("Jump"))
+            {
+                _jump = true;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            controller.Move(_horizontalMove * Time.fixedDeltaTime, _jump);
+            _jump = false;
+        }
     }
 }
