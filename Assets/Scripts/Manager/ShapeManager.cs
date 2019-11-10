@@ -17,7 +17,10 @@ namespace Manager
         {
             foreach (var changeShapeController in _shapes)
             {
-                action.Invoke(changeShapeController);
+                if (changeShapeController != null)
+                {
+                    action.Invoke(changeShapeController);
+                }
             }
         }
     }

@@ -13,10 +13,15 @@ namespace Manager
         
         private static readonly ScoreUpdatedEvent OnScoreUpdated = new ScoreUpdatedEvent();
         
-        public static void IncrementCurrentScore()
+        public static void IncrementScore()
         {
             _currentScore += 1;
-            Assert.IsTrue(_currentScore <= _maxScore);
+            OnScoreUpdated?.Invoke(_currentScore, _maxScore);
+        }
+
+        public static void DecrementScore()
+        {
+            _currentScore -= 1;
             OnScoreUpdated?.Invoke(_currentScore, _maxScore);
         }
         
