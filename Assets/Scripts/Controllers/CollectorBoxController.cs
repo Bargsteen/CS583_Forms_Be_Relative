@@ -1,19 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using Manager;
+using UnityEngine;
 
 namespace Controllers
 {
     public class CollectorBoxController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            GameManager.IncrementCurrentScore();
         }
     }
 }
