@@ -8,6 +8,8 @@ namespace Manager
     {
         private static int _currentScore;
         private static int _maxScore;
+
+        public static bool SavedProgressExists { get; } = false;
         
         private static readonly ScoreUpdatedEvent OnScoreUpdated = new ScoreUpdatedEvent();
 
@@ -26,6 +28,11 @@ namespace Manager
         {
             _maxScore = maxScore;
             OnScoreUpdated?.Invoke(_currentScore, _maxScore);
+        }
+
+        public static void SaveGame()
+        {
+            // TODO: Save game in PlayerPrefs
         }
     }
 }
