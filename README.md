@@ -1,6 +1,8 @@
 # Forms Be Relative
 This game is a puzzle platformer. I've managed to create five levels, but more would be needed in order for the game to be complete. Adding new levels is easy and I look forward to adding different mechanics.
 
+An executable for MacOS is in the `Executables` folder.
+
 ## Controls
 Move Right  : D / ->
 
