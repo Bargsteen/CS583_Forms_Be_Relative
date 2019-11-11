@@ -1,3 +1,4 @@
+using Controllers;
 using Misc;
 using UnityEngine;
 
@@ -21,6 +22,16 @@ namespace Manager
             
             // Stops the time in the game
             Time.timeScale = 0;
+        }
+
+        public void SaveAndExitGame()
+        {
+            PersistenceController.SaveGame();
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
         }
     }
 }

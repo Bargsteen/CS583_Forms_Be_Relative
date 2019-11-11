@@ -169,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headline: {fileID: 6547218488595971028}
   instructions: {fileID: 6413335393237628544}
-  overlayPrefab: {fileID: 7591076279514055864}
 --- !u!1001 &5556339764301573989
 PrefabInstance:
   m_ObjectHideFlags: 0
