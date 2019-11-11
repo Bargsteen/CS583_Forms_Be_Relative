@@ -2,6 +2,7 @@
 using Manager;
 using Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Controllers
 {
@@ -9,7 +10,14 @@ namespace Controllers
     {
         [SerializeField] private Sprite spriteTypeToCollect;
         private bool _isColliding;
-        
+
+        public ShapeCollectedEvent onShapeCollected = new ShapeCollectedEvent();
+
+        private void Awake()
+        {
+            onShapeCollected.AddListener(LevelManager.Instance.HandleShapeCollected);
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             // Ignore if it wasn't a shape-type
@@ -20,11 +28,8 @@ namespace Controllers
             
             Destroy(other.gameObject);
 
-            // If it is the correct type of shape
-            if (other.GetComponent<SpriteRenderer>().sprite.name == spriteTypeToCollect.name)
-            {
-                GameManager.Instance.IncrementScore();
-            }
+            bool shapeWasCorrectType = other.GetComponent<SpriteRenderer>().sprite.name == spriteTypeToCollect.name;
+            onShapeCollected?.Invoke(shapeWasCorrectType);
         }
 
         private void Update()

@@ -25,12 +25,12 @@ namespace Controllers.Menu
 
         private static void OnContinuePressed()
         {
-            // TODO: Load relevant scene
+            LevelManager.Instance.LoadCurrentLevel();
         }
         
         private static void OnNewGamePressed()
         {
-            SceneManager.LoadScene(Scenes.Level(1));
+            LevelManager.Instance.LoadFirstLevel();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Controllers.Menu
 
         private static void OnRestartLevelPressed()
         {
-            SceneManager.LoadScene(GameManager.Instance.CurrentLevel);
+            LevelManager.Instance.LoadCurrentLevel();
         }
     }
 }

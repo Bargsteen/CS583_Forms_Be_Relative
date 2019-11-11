@@ -11,8 +11,10 @@ namespace Manager
         private void Awake()
         {
             _shapes = FindObjectsOfType<ChangeShapeController>();
-            GameManager.Instance.SetMaxScore(_shapes.Length);
+            LevelManager.Instance.ShapeManager = this;
         }
+
+        public int TotalShapesInLevel => _shapes.Length;
 
         public void ApplyOnEachShape(Action<ChangeShapeController> action)
         {
