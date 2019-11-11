@@ -77,18 +77,27 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8131483221152130163, guid: e31d4194010924c7bafdff61d63680ed,
+    - target: {fileID: 6465880312291023332, guid: e31d4194010924c7bafdff61d63680ed,
         type: 3}
-      propertyPath: _spriteTypeToCollect
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3141b37c6c1464e1b829fe6cf612d67e,
+      objectReference: {fileID: 21300000, guid: b79d311d18f80426a8999f1892d46949,
         type: 3}
-    - target: {fileID: 8131483221152130163, guid: e31d4194010924c7bafdff61d63680ed,
+    - target: {fileID: 6465880312291023332, guid: e31d4194010924c7bafdff61d63680ed,
         type: 3}
-      propertyPath: spriteTypeToCollect
-      value: 
-      objectReference: {fileID: 21300000, guid: 3141b37c6c1464e1b829fe6cf612d67e,
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465880312291023332, guid: e31d4194010924c7bafdff61d63680ed,
         type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465880312291023332, guid: e31d4194010924c7bafdff61d63680ed,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7442631
+      objectReference: {fileID: 0}
     - target: {fileID: -258692643415419352, guid: e31d4194010924c7bafdff61d63680ed,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -109,11 +118,17 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6465880312291023332, guid: e31d4194010924c7bafdff61d63680ed,
+    - target: {fileID: 8131483221152130163, guid: e31d4194010924c7bafdff61d63680ed,
         type: 3}
-      propertyPath: m_Sprite
+      propertyPath: _spriteTypeToCollect
       value: 
-      objectReference: {fileID: 21300000, guid: 1f55d992acb1542e98f90d809ce4e312,
+      objectReference: {fileID: 21300000, guid: 3141b37c6c1464e1b829fe6cf612d67e,
+        type: 3}
+    - target: {fileID: 8131483221152130163, guid: e31d4194010924c7bafdff61d63680ed,
+        type: 3}
+      propertyPath: spriteTypeToCollect
+      value: 
+      objectReference: {fileID: 21300000, guid: 3141b37c6c1464e1b829fe6cf612d67e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31d4194010924c7bafdff61d63680ed, type: 3}
