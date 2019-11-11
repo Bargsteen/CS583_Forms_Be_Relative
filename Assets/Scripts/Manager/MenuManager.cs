@@ -8,6 +8,7 @@ namespace Manager
     {
         [SerializeField] private OverlayMenuController overlayMenuController;
         [SerializeField] private PlayLevelOverlayController playLevelOverlayController;
+        [SerializeField] private LevelFinishedOverlayController levelFinishedOverlayController;
 
         private bool _playLevelOverlayWasActive;
         
@@ -45,6 +46,11 @@ namespace Manager
                     GameManager.Instance.RunGame();
                 }
             }
+        }
+
+        public void ShowLevelFinishedOverlay()
+        {
+            levelFinishedOverlayController.gameObject.SetActive(true);
         }
     }
 }

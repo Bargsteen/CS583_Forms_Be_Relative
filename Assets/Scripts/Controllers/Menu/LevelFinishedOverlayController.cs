@@ -1,5 +1,7 @@
 ﻿using System;
 using Manager;
+using Misc;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -7,9 +9,23 @@ namespace Controllers.Menu
 {
     public class LevelFinishedOverlayController : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI headline;
+        [SerializeField] private TextMeshProUGUI instructions;
+        
+        public static GameObject overlayPrefab;
+        
         private void Awake()
         {
-            Assert.IsTrue(LevelManager.Instance.LevelCompleted);
+            if (LevelManager.Instance.LevelWon)
+            {
+                headline.text = GameText.LevelCompletedHeadline;
+                instructions.text = GameText.LevelCompletedInstructions;
+            }
+            else
+            {
+                headline.text = GameText.LevelFailedHeadline;
+                instructions.text = GameText.LevelFailedInstructions;
+            }
         }
 
         private void Update()
@@ -18,12 +34,10 @@ namespace Controllers.Menu
 
             if (LevelManager.Instance.LevelWon)
             {
-                // TODO: Display Happy Text
                 LevelManager.Instance.LoadNextLevel();
             }
             else
             {
-                // TODO: Display sad text
                 LevelManager.Instance.LoadCurrentLevel();
             }
         }
