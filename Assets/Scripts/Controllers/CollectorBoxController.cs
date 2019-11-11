@@ -9,6 +9,8 @@ namespace Controllers
     public class CollectorBoxController : MonoBehaviour
     {
         [SerializeField] private Sprite spriteTypeToCollect;
+        private SoundClipController _soundClipController;
+        
         private bool _isColliding;
 
         public ShapeCollectedEvent onShapeCollected = new ShapeCollectedEvent();
@@ -16,6 +18,7 @@ namespace Controllers
         private void Awake()
         {
             onShapeCollected.AddListener(LevelManager.Instance.HandleShapeCollected);
+            _soundClipController = GetComponent<SoundClipController>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +33,15 @@ namespace Controllers
 
             bool shapeWasCorrectType = other.GetComponent<SpriteRenderer>().sprite.name == spriteTypeToCollect.name;
             onShapeCollected?.Invoke(shapeWasCorrectType);
+
+            if (shapeWasCorrectType)
+            {
+                _soundClipController.PlayCorrectShapeSound();
+            }
+            else
+            {
+                _soundClipController.PlayWrongShapeSound();
+            }
         }
 
         private void Update()
