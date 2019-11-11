@@ -16,7 +16,7 @@ namespace Controllers.Menu
         
         private static void OnExitPressed()
         {
-            GameManager.Instance.SaveGame();
+            PersistenceController.SaveGame();
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
             #else

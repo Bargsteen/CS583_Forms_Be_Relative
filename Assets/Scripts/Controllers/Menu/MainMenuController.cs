@@ -14,9 +14,9 @@ namespace Controllers.Menu
         {
             base.Start();
             
-            if (GameManager.Instance.SavedProgressExists)
+            if (PersistenceController.SavedProgressExists)
             {
-                continueButton.enabled = true;
+                continueButton.gameObject.SetActive(true);
             }
 
             continueButton.onClick.AddListener(OnContinuePressed);
@@ -25,6 +25,7 @@ namespace Controllers.Menu
 
         private static void OnContinuePressed()
         {
+            LevelManager.Instance.CurrentLevel = PersistenceController.LoadSavedLevel();
             LevelManager.Instance.LoadCurrentLevel();
         }
         

@@ -8,7 +8,7 @@ namespace Manager
 {
     public class LevelManager : Singleton<LevelManager>
     {
-        public int CurrentLevel { get; private set; } = 1;
+        public int CurrentLevel { get; set; } = 1;
         public bool LevelCompleted => ShapesCollectedInLevel == TotalShapesInLevel;
         public bool LevelWon => CorrectShapesCollectedInLevel == TotalShapesInLevel;
         
@@ -43,6 +43,7 @@ namespace Manager
 
         public void LoadFirstLevel()
         {
+            CurrentLevel = 1;
             LoadLevel(Scenes.Level(1));
         }
 
