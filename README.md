@@ -1,5 +1,10 @@
 # Forms Be Relative
-This game is a puzzle platformer. I've managed to create five levels, but more would be needed in order for the game to be complete. Adding new levels is easy and I look forward to adding different mechanics.
+Forms Be Relative is a puzzle platformer, where the goal is to collect the shapes into their matching boxes.
+Your influence the outcome via the player and a sort of button, which allows you to transform squares into circles and vice versa.
+
+I've managed to create five levels, but more would be needed in order for the game to be complete. Adding new levels is easy and I look forward to adding different mechanics.
+
+I quite like games such as Braid and The Witness, where no instructions are given, which I've mimicked in here.
 
 An executable for MacOS is in the `Executables` folder.
 
