@@ -26,6 +26,9 @@ While I don't have an inventory system, I do save the current level in PlayerPre
 I created all the music and sound effects myself.
 The game-style lends itself to basic graphics, so the sprites I created were very simple in nature. I also created the splash screen, all of it using Krita.
 
+## Fonts
+The game uses the Roboto font which comes with the *TextMeshPro Extras*, so both *TextMeshPro* and the extras package has to be imported through the popup Unity shows when you open the project for the first time.
+
 ## Acknowledgement
 - My `Singleton` implementation was heavily inspired by [this Wiki.Unity3d.com example.](http://wiki.unity3d.com/index.php?title=Singleton&oldid=20231)
 - The `CharacterController` was inspired by [this generic 2D Character Controller by Brackeys.](https://github.com/Brackeys/2D-Character-Controller/blob/master/CharacterController2D.cs)
