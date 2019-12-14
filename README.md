@@ -27,7 +27,8 @@ I created all the music and sound effects myself.
 The game-style lends itself to basic graphics, so the sprites I created were very simple in nature. I also created the splash screen, all of it using Krita.
 
 ## Fonts
-The game uses the Roboto font which comes with the *TextMeshPro Extras*, so both *TextMeshPro* and the extras package has to be imported through the popup Unity shows when you open the project for the first time.
+- The game uses the Roboto font which comes with the *TextMeshPro Extras*, so both *TextMeshPro* and the extras package has to be imported through the popup Unity shows when you open the project for the first time.
+- I could not get changes in the TextMeshPro settings under ProjectSettings to be tracked by git, which means that the default font-type is not set to Roboto. For consistent fonts throughout the game, this setting should be changed.
 
 ## Acknowledgement
 - My `Singleton` implementation was heavily inspired by [this Wiki.Unity3d.com example.](http://wiki.unity3d.com/index.php?title=Singleton&oldid=20231)
